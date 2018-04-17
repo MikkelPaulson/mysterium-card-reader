@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<title>Hello, world!</title>
+
+</head>
+<body>
+<div class="container" id="input">
+
+<form id="game-form">
+	<h2>Game parameters</h2>
+
+	<div class="form-row">
+		<div class="form-group col-sm">
+			<label class="form-label" for="num-psychics">Number of psychics</label>
+			<input type="number" class="form-control" id="num-psychics" value="3" min="1" max="6" name="numPsychics">
+		</div>
+		<div class="form-group col-sm">
+			<label class="form-label" for="difficulty">Difficulty</label>
+			<select id="difficulty" class="form-control" name="difficulty">
+				<option value="easy">Easy</option>
+				<option value="medium" selected>Medium</option>
+				<option value="hard">Hard</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<h4>Expansions</h4>
+
+		<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="exp-hs" name="expHiddenSigns">
+			<label class="form-check-label" for="exp-hs">Hidden Signs</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="exp-sl" name="expSecretsAndLies">
+			<label class="form-check-label" for="exp-sl">Secrets &amp; Lies</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<h4>Third round</h4>
+
+		<div class="form-check form-check-inline">
+			<input id="round3-objects" class="form-check-input" type="radio" name="round3" value="objects" checked>
+			<label class="form-check-label" for="round3-objects">Object cards</label>
+		</div>
+
+		<div class="form-check form-check-inline">
+			<input id="round3-stories" class="form-check-input" type="radio" name="round3" value="stories" disabled>
+			<label class="form-check-label" for="round3-stories">Story cards (requires Secrets &amp; Lies)</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<h4>Promo cards</h4>
+
+		<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="promo-1" name="promo[]" value="1">
+			<label class="form-check-label" for="promo-1">P1 (character)</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="promo-2" name="promo[]" value="2">
+			<label class="form-check-label" for="promo-2">P2 (location)</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="promo-3" name="promo[]" value="3">
+			<label class="form-check-label" for="promo-3">P3 (object)</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="promo-4" name="promo[]" value="4">
+			<label class="form-check-label" for="promo-4">P4 (object)</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input type="checkbox" class="form-check-input" id="promo-5" name="promo[]" value="5" disabled>
+			<label class="form-check-label" for="promo-5">P5 (story)</label>
+		</div>
+	</div>
+
+	<div class="form-group text-center">
+		<button type="submit" class="btn btn-primary">Read my cards</button>
+	</div>
+</form>
+
+</div>
+<div class="container d-none" id="output">
+
+	<div class="row">
+		<div class="col-md">
+			<p>Clairvoyancy tokens: <strong id="out-clairvoyancy"></strong></p>
+		</div>
+		<div class="col-md">
+			<p>Crows: <strong id="out-crows"></strong></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 col-lg-4">
+			<p>Character cards: <span id="out-characters"></span></p>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<p>Location cards: <span id="out-locations"></span></p>
+		</div>
+		<div class="col-md-6 col-lg-4" id ="out-objects-container">
+			<p>Object cards: <span id="out-objects"></span></p>
+		</div>
+		<div class="col-md-6 col-lg-4" id ="out-stories-container">
+			<p>Story cards: <span id="out-stories"></span></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col text-center">
+			<button id="reset" class="btn btn-danger">Reset</button>
+		</div>
+	</div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
