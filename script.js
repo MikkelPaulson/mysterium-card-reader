@@ -90,7 +90,7 @@ $('#game-form').submit(function (event) {
 
 		switch (key) {
 			case 'promo[]':
-				game.promo.push(value);
+				game.promo.push(Number(value));
 				break;
 			case 'numPsychics':
 				game[key] = Number(value);
@@ -151,19 +151,21 @@ $('#game-form').submit(function (event) {
 	}
 
 	for (i = 0; i < game.promo.length; i++) {
-		switch (i) {
+		value = game.promo[i];
+
+		switch (value) {
 			case 1:
-				cards.characters.push('P' + i);
+				cards.characters.push('P' + value);
 				break;
 			case 2:
-				cards.locations.push('P' + i);
+				cards.locations.push('P' + value);
 				break;
 			case 3:
 			case 4:
-				cards.objects.push('P' + i);
+				cards.objects.push('P' + value);
 				break;
 			case 5:
-				cards.stories.push('P' + i);
+				cards.stories.push('P' + value);
 				break;
 		}
 	}
