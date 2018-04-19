@@ -26,6 +26,7 @@ $('#reset').click(function () {
 
 $('#game-form').submit(function (event) {
 	event.preventDefault();
+
 	var allCharacters = [];
 	var allLocations = [];
 	var allObjects = [];
@@ -56,28 +57,50 @@ $('#game-form').submit(function (event) {
 		stories: []
 	};
 
+	/*
+	 * Need a complicated comparison algorithm because we're sorting both
+	 * alphabetically and numerically. Our desired sort order looks like:
+	 *
+	 * 1, 2, 10, HS1, HS2, HS10, P1, P2, SL1, SL2, SL10
+	 *
+	 * * base cards sort first
+	 * * expansion cards sort alphabetically by expansion code (HS < P < SL)
+	 * * base cards and expansion cards sort numerically
+	 */
 	var cardSort = function(a, b) {
 		if (typeof a == 'string') {
+			/* a is an expansion card */
+
 			if (typeof b == 'string') {
+				/* and b is also an expansion card */
+
 				aPos = a.search(/[0-9]/);
 				bPos = b.search(/[0-9]/);
 				aExp = a.slice(0, aPos);
 				bExp = b.slice(0, bPos);
 
 				if (aExp > bExp) {
+					/* string part of a sorts after b */
 					return 1;
 				} else if (aExp < bExp) {
+					/* string part of b sorts after a */
 					return -1;
 				} else {
-						return a.slice(aPos) - b.slice(bPos);
+					/* a and b are from the same expansion - sort numerically */
+					return a.slice(aPos) - b.slice(bPos);
 				}
 			} else {
+				/* but b is not an expansion card - b comes first */
 				return 1;
 			}
 		} else {
+			/* a is not an expansion card */
+
 			if (typeof b == 'string') {
+				/* but b is an expansion card - a comes first */
 				return -1;
 			} else {
+				/* and b is also not an expansion card - sort numerically */
 				return a - b;
 			}
 		}
@@ -85,8 +108,8 @@ $('#game-form').submit(function (event) {
 
 	var formArray = $(this).serializeArray();
 	for (var i = 0; i < formArray.length; i++) {
-		key = formArray[i].name;
-		value = formArray[i].value;
+		var key = formArray[i].name;
+		var value = formArray[i].value;
 
 		switch (key) {
 			case 'promo[]':
@@ -113,45 +136,45 @@ $('#game-form').submit(function (event) {
 		hard: {1:6, 2:7, 3:7, 4:8, 5:9, 6:9},
 	}[game.difficulty][game.numPsychics];
 
-	for (i = 1; i <= 18; i++) {
+	for (var i = 1; i <= 18; i++) {
 		cards.characters.push(i);
 	}
-	for (i = 19; i <= 36; i++) {
+	for (var i = 19; i <= 36; i++) {
 		cards.locations.push(i);
 	}
-	for (i = 37; i <= 54; i++) {
+	for (var i = 37; i <= 54; i++) {
 		cards.objects.push(i);
 	}
 
 	if (game.expHiddenSigns) {
-		for (i = 1; i <= 6; i++) {
+		for (var i = 1; i <= 6; i++) {
 			cards.characters.push('HS' + i);
 		}
-		for (i = 7; i <= 12; i++) {
+		for (var i = 7; i <= 12; i++) {
 			cards.locations.push('HS' + i);
 		}
-		for (i = 13; i <= 18; i++) {
+		for (var i = 13; i <= 18; i++) {
 			cards.objects.push('HS' + i);
 		}
 	}
 
 	if (game.expSecretsAndLies) {
-		for (i = 1; i <= 6; i++) {
+		for (var i = 1; i <= 6; i++) {
 			cards.characters.push('SL' + i);
 		}
-		for (i = 7; i <= 12; i++) {
+		for (var i = 7; i <= 12; i++) {
 			cards.locations.push('SL' + i);
 		}
-		for (i = 13; i <= 18; i++) {
+		for (var i = 13; i <= 18; i++) {
 			cards.objects.push('SL' + i);
 		}
-		for (i = 19; i <= 36; i++) {
+		for (var i = 19; i <= 36; i++) {
 			cards.stories.push('SL' + i);
 		}
 	}
 
-	for (i = 0; i < game.promo.length; i++) {
-		value = game.promo[i];
+	for (var i = 0; i < game.promo.length; i++) {
+		var value = game.promo[i];
 
 		switch (value) {
 			case 1:
