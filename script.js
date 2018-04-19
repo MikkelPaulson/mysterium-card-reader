@@ -192,14 +192,14 @@ $('#game-form').submit(function (event) {
 	switch (game.numPsychics) {
 		case 1:
 		case 2:
-			output.clairvoyancy = 0;
+			output.clairvoyancy = 'None';
 			break;
 		case 3:
 		case 4:
-			output.clairvoyancy = 4;
+			output.clairvoyancy = '1&ndash;4';
 			break;
 		default:
-			output.clairvoyancy = 6;
+			output.clairvoyancy = '1&ndash;6';
 			break;
 	}
 
