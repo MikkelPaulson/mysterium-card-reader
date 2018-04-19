@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<title>Hello, world!</title>
+<title>Mysterium Card Reader</title>
 
 </head>
 <body>
@@ -21,8 +21,27 @@
 
 	<div class="form-row">
 		<div class="form-group col-sm">
-			<label class="form-label" for="num-psychics">Number of psychics</label>
-			<input type="number" class="form-control" id="num-psychics" value="3" min="1" max="6" name="numPsychics">
+			<label class="form-label" for="numPsychics">Number of psychics</label>
+			<div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-secondary">
+					<input type="radio" name="numPsychics" id="num-psychics-1" value="1"> 1
+				</label>
+				<label class="btn btn-secondary">
+					<input type="radio" name="numPsychics" id="num-psychics-2" value="2"> 2
+				</label>
+				<label class="btn btn-secondary active">
+					<input type="radio" name="numPsychics" id="num-psychics-3" value="3" checked> 3
+				</label>
+				<label class="btn btn-secondary">
+					<input type="radio" name="numPsychics" id="num-psychics-4" value="4"> 4
+				</label>
+				<label class="btn btn-secondary">
+					<input type="radio" name="numPsychics" id="num-psychics-5" value="5"> 5
+				</label>
+				<label class="btn btn-secondary">
+					<input type="radio" name="numPsychics" id="num-psychics-6" value="6"> 6
+				</label>
+			</div>
 		</div>
 		<div class="form-group col-sm">
 			<label class="form-label" for="difficulty">Difficulty</label>
