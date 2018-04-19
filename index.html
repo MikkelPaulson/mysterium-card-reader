@@ -45,11 +45,17 @@
 		</div>
 		<div class="form-group col-sm">
 			<label class="form-label" for="difficulty">Difficulty</label>
-			<select id="difficulty" class="form-control" name="difficulty">
-				<option value="easy">Easy</option>
-				<option value="medium" selected>Medium</option>
-				<option value="hard">Hard</option>
-			</select>
+			<div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-secondary">
+					<input type="radio" name="difficulty" id="difficulty-easy" value="easy"> Easy
+				</label>
+				<label class="btn btn-secondary active">
+					<input type="radio" name="difficulty" id="difficulty-medium" value="medium" checked> Medium
+				</label>
+				<label class="btn btn-secondary">
+					<input type="radio" name="difficulty" id="difficulty-hard" value="hard"> Hard
+				</label>
+			</div>
 		</div>
 	</div>
 
