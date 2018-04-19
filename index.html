@@ -26,103 +26,103 @@
 	cards so that you don't have to.</p>
 
 
-    <form id="game-form">
-        <div class="form-row">
-            <div class="form-group col-sm">
-                <label class="form-label h4" for="numPsychics">Number of psychics</label>
-                <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="numPsychics" id="num-psychics-1" value="1"> 1
-                    </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="numPsychics" id="num-psychics-2" value="2"> 2
-                    </label>
-                    <label class="btn btn-secondary active">
-                        <input type="radio" name="numPsychics" id="num-psychics-3" value="3" checked> 3
-                    </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="numPsychics" id="num-psychics-4" value="4"> 4
-                    </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="numPsychics" id="num-psychics-5" value="5"> 5
-                    </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="numPsychics" id="num-psychics-6" value="6"> 6
-                    </label>
-                </div>
-            </div>
-            <div class="form-group col-sm">
-                <label class="form-label h4" for="difficulty">Difficulty</label>
-                <div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="difficulty" id="difficulty-easy" value="easy"> Easy
-                    </label>
-                    <label class="btn btn-secondary active">
-                        <input type="radio" name="difficulty" id="difficulty-medium" value="medium" checked> Medium
-                    </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="difficulty" id="difficulty-hard" value="hard"> Hard
-                    </label>
-                </div>
-            </div>
-        </div>
+	<form id="game-form">
+		<div class="form-row">
+			<div class="form-group col-sm">
+				<label class="form-label h4" for="numPlayers">Number of players <small class="text-muted">(including the ghost)</small></label>
+				<div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-secondary">
+						<input type="radio" name="numPlayers" id="num-players-2" value="2"> 2
+					</label>
+					<label class="btn btn-secondary">
+						<input type="radio" name="numPlayers" id="num-players-3" value="3"> 3
+					</label>
+					<label class="btn btn-secondary active">
+						<input type="radio" name="numPlayers" id="num-players-4" value="4" checked> 4
+					</label>
+					<label class="btn btn-secondary">
+						<input type="radio" name="numPlayers" id="num-players-5" value="5"> 5
+					</label>
+					<label class="btn btn-secondary">
+						<input type="radio" name="numPlayers" id="num-players-6" value="6"> 6
+					</label>
+					<label class="btn btn-secondary">
+						<input type="radio" name="numPlayers" id="num-players-7" value="7"> 7
+					</label>
+				</div>
+			</div>
+			<div class="form-group col-sm">
+				<label class="form-label h4" for="difficulty">Difficulty</label>
+				<div class="input-group btn-group btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-secondary">
+						<input type="radio" name="difficulty" id="difficulty-easy" value="easy"> Easy
+					</label>
+					<label class="btn btn-secondary active">
+						<input type="radio" name="difficulty" id="difficulty-medium" value="medium" checked> Medium
+					</label>
+					<label class="btn btn-secondary">
+						<input type="radio" name="difficulty" id="difficulty-hard" value="hard"> Hard
+					</label>
+				</div>
+			</div>
+		</div>
 
-        <div class="form-group">
-            <h4>Expansions</h4>
+		<div class="form-group">
+			<h4>Expansions</h4>
 
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="exp-hs" name="expHiddenSigns">
-                <label class="form-check-label" for="exp-hs">Hidden Signs</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="exp-sl" name="expSecretsAndLies">
-                <label class="form-check-label" for="exp-sl">Secrets &amp; Lies</label>
-            </div>
-        </div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="exp-hs" name="expHiddenSigns">
+				<label class="form-check-label" for="exp-hs">Hidden Signs</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="exp-sl" name="expSecretsAndLies">
+				<label class="form-check-label" for="exp-sl">Secrets &amp; Lies</label>
+			</div>
+		</div>
 
-        <div class="form-group">
-            <h4>Third round</h4>
+		<div class="form-group">
+			<h4>Third round</h4>
 
-            <div class="form-check form-check-inline">
-                <input id="round3-objects" class="form-check-input" type="radio" name="round3" value="objects" checked>
-                <label class="form-check-label" for="round3-objects">Object cards</label>
-            </div>
+			<div class="form-check form-check-inline">
+				<input id="round3-objects" class="form-check-input" type="radio" name="round3" value="objects" checked>
+				<label class="form-check-label" for="round3-objects">Object cards</label>
+			</div>
 
-            <div class="form-check form-check-inline">
-                <input id="round3-stories" class="form-check-input" type="radio" name="round3" value="stories" disabled>
-                <label class="form-check-label" for="round3-stories">Story cards (requires Secrets &amp; Lies)</label>
-            </div>
-        </div>
+			<div class="form-check form-check-inline">
+				<input id="round3-stories" class="form-check-input" type="radio" name="round3" value="stories" disabled>
+				<label class="form-check-label" for="round3-stories">Story cards (requires Secrets &amp; Lies)</label>
+			</div>
+		</div>
 
-        <div class="form-group">
-            <h4>Promo cards</h4>
+		<div class="form-group">
+			<h4>Promo cards</h4>
 
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="promo-1" name="promo[]" value="1">
-                <label class="form-check-label" for="promo-1">P1 (character)</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="promo-2" name="promo[]" value="2">
-                <label class="form-check-label" for="promo-2">P2 (location)</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="promo-3" name="promo[]" value="3">
-                <label class="form-check-label" for="promo-3">P3 (object)</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="promo-4" name="promo[]" value="4">
-                <label class="form-check-label" for="promo-4">P4 (object)</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" id="promo-5" name="promo[]" value="5" disabled>
-                <label class="form-check-label" for="promo-5">P5 (story)</label>
-            </div>
-        </div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="promo-1" name="promo[]" value="1">
+				<label class="form-check-label" for="promo-1">P1 (character)</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="promo-2" name="promo[]" value="2">
+				<label class="form-check-label" for="promo-2">P2 (location)</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="promo-3" name="promo[]" value="3">
+				<label class="form-check-label" for="promo-3">P3 (object)</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="promo-4" name="promo[]" value="4">
+				<label class="form-check-label" for="promo-4">P4 (object)</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input type="checkbox" class="form-check-input" id="promo-5" name="promo[]" value="5" disabled>
+				<label class="form-check-label" for="promo-5">P5 (story)</label>
+			</div>
+		</div>
 
-        <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary">Read my cards</button>
-        </div>
-    </form>
+		<div class="form-group text-center">
+			<button type="submit" class="btn btn-primary">Read my cards</button>
+		</div>
+	</form>
 
 </div>
 
@@ -131,41 +131,76 @@
 
 <div class="jumbotron d-none" id="output">
 
-    <div class="row">
-        <div class="col-md">
-            <h4>Clairvoyancy tokens</h4>
-            <p id="out-clairvoyancy" class="lead"></p>
-        </div>
-        <div class="col-md">
-            <h4>Crows</h4>
-            <p id="out-crows" class="lead"></p>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-md">
+			<h4>Clairvoyancy tokens</h4>
+			<p class="lead conditional conditional-2p conditional-3p">None</p>
+			<p class="lead conditional conditional-4p conditional-5p">1 &ndash; 4 only</p>
+			<p class="lead conditional conditional-6p conditional-7p">All (1 &ndash; 6)</p>
+		</div>
+		<div class="col-md">
+			<h4>Crows</h4>
+			<p class="lead conditional conditional-easy">1 per turn</p>
+			<p class="lead conditional conditional-medium">3 per game</p>
+			<p class="lead conditional conditional-hard">1 per game</p>
+		</div>
+	</div>
 
-    <div class="row">
-        <div class="col-md-6 col-lg-4">
-            <h4>Character cards</h4>
-            <p id="out-characters" class="lead"></p>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <h4>Location cards</h4>
-            <p id="out-locations" class="lead"></p>
-        </div>
-        <div class="col-md-6 col-lg-4" id ="out-objects-container">
-            <h4>Object cards</h4>
-            <p id="out-objects" class="lead"></p>
-        </div>
-        <div class="col-md-6 col-lg-4" id ="out-stories-container">
-            <h4>Story cards</h4>
-            <p id="out-stories" class="lead"></p>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-md-6 col-lg-4">
+			<h4>Character cards</h4>
+			<p id="out-characters" class="lead"></p>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<h4>Location cards</h4>
+			<p id="out-locations" class="lead"></p>
+		</div>
+		<div class="col-md-6 col-lg-4 conditional conditional-objects">
+			<h4>Object cards</h4>
+			<p id="out-objects" class="lead"></p>
+		</div>
+		<div class="col-md-6 col-lg-4 conditional conditional-stories">
+			<h4>Story cards</h4>
+			<p id="out-stories" class="lead"></p>
+		</div>
+	</div>
 
-    <div class="row">
-        <div class="col text-center">
-            <button id="reset" class="btn btn-danger">Reset</button>
-        </div>
-    </div>
+	<div class="conditional conditional-2p conditional-3p">
+		<h4 class="conditional conditional-2p">Additional rules (2 players)</h4>
+		<h4 class="conditional conditional-3p">Additional rules (3 players)</h4>
+
+		<ul>
+			<li>
+				The <strong>clairvoyancy track</strong>, the related markers, and the
+				<strong>clairvoyancy tokens</strong> are not used.
+			</li>
+			<li>Each player plays with two psychics.</li>
+			<li>
+				During the <em>shared vision</em>, the three <strong>vision cards</strong> are
+				placed face up.
+			</li>
+
+			<li class="conditional conditional-2p">
+				Randomly create two additional groups of cards (with a character, a location and
+				<span class="conditional conditional-objects">an object</span>
+				<span class="conditional conditional-stories">a story</span>
+				in each group) using psychic cards discarded during the game, bringing the total
+				number of groups to four. Then place the tokens numbered 1 to 4 by the four groups
+				thus formed.
+			</li>
+			<li class="conditional conditional-3p">
+				Psychics vote openly rather than in secret. The two players with the role of
+				psychics must agree which group to identify as the suspected culprit's group and
+				place their two <strong>intuition tokens</strong> on it.
+			</li>
+		</ul>
+	</div>
+
+	<div class="row">
+		<div class="col text-center">
+			<button id="reset" class="btn btn-danger">Reset</button>
+		</div>
+	</div>
 
 </div>
 

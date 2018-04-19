@@ -34,7 +34,7 @@ $('#game-form').submit(function (event) {
 
 	var game = {
 		difficulty: 'medium',
-		numPsychics: null,
+		numPlayers: null,
 		expHiddenSigns: false,
 		expSecretsAndLies: false,
 		round3: 'objects',
@@ -45,9 +45,7 @@ $('#game-form').submit(function (event) {
 		characters: [],
 		locations: [],
 		objects: [],
-		stories: [],
-		crows: '',
-		clairvoyancy: 0
+		stories: []
 	};
 
 	var cards = {
@@ -106,6 +104,12 @@ $('#game-form').submit(function (event) {
 		}
 	};
 
+	$('.conditional').each(function () {
+		if (!$(this).hasClass('d-none')) {
+			$(this).addClass('d-none');
+		}
+	});
+
 	var formArray = $(this).serializeArray();
 	for (var i = 0; i < formArray.length; i++) {
 		var key = formArray[i].name;
@@ -115,7 +119,7 @@ $('#game-form').submit(function (event) {
 			case 'promo[]':
 				game.promo.push(Number(value));
 				break;
-			case 'numPsychics':
+			case 'numPlayers':
 				game[key] = Number(value);
 				break;
 			case 'expHiddenSigns':
@@ -131,10 +135,10 @@ $('#game-form').submit(function (event) {
 	}
 
 	var cardCount = {
-		easy: {1:4, 2:5, 3:5, 4:6, 5:6, 6:7},
-		medium: {1:5, 2:6, 3:6, 4:7, 5:8, 6:8},
-		hard: {1:6, 2:7, 3:7, 4:8, 5:9, 6:9},
-	}[game.difficulty][game.numPsychics];
+		easy: {2:4, 3:5, 4:5, 5:6, 6:6, 7:7},
+		medium: {2:5, 3:6, 4:6, 5:7, 6:8, 7:8},
+		hard: {2:6, 3:7, 4:7, 5:8, 6:9, 7:9},
+	}[game.difficulty][game.numPlayers];
 
 	for (var i = 1; i <= 18; i++) {
 		cards.characters.push(i);
@@ -202,43 +206,22 @@ $('#game-form').submit(function (event) {
 
 	switch (game.difficulty) {
 		case 'easy':
-			output.crows = '1 per round';
+			$('.conditional-easy').removeClass('d-none');
 			break;
 		case 'medium':
-			output.crows = '3 per game';
+			$('.conditional-medium').removeClass('d-none');
 			break;
 		case 'hard':
-			output.crows = '1 per game';
+			$('.conditional-hard').removeClass('d-none');
 			break;
 	}
 
-	switch (game.numPsychics) {
-		case 1:
-		case 2:
-			output.clairvoyancy = 'None';
-			break;
-		case 3:
-		case 4:
-			output.clairvoyancy = '1&ndash;4';
-			break;
-		default:
-			output.clairvoyancy = '1&ndash;6';
-			break;
-	}
-
-	$('#out-crows').html(output.crows);
-	$('#out-clairvoyancy').html(output.clairvoyancy);
+	$('.conditional-' + game.numPlayers + 'p').removeClass('d-none');
 
 	if (game.round3 === 'objects') {
-		$('#out-objects-container').removeClass('d-none');
-		if (!$('#out-stories-container').hasClass('d-none')) {
-			$('#out-stories-container').addClass('d-none');
-		}
+		$('.conditional-objects').removeClass('d-none');
 	} else {
-		$('#out-stories-container').removeClass('d-none');
-		if (!$('#out-objects-container').hasClass('d-none')) {
-			$('#out-objects-container').addClass('d-none');
-		}
+		$('.conditional-stories').removeClass('d-none');
 	}
 
 	for (var deck in cards) {
