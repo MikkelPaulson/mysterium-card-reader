@@ -3,7 +3,7 @@ $('#exp-sl').change(function () {
 		$('#round3-stories').prop('disabled', false);
 	} else {
 		$('#round3-stories').prop('disabled', true);
-		$('#round3-objects').prop('checked', true);
+		$('#round3-objects').prop('checked', true).change();
 	}
 });
 
@@ -26,11 +26,6 @@ $('#reset').click(function () {
 
 $('#game-form').submit(function (event) {
 	event.preventDefault();
-
-	var allCharacters = [];
-	var allLocations = [];
-	var allObjects = [];
-	var allStories = [];
 
 	var game = {
 		difficulty: 'medium',
