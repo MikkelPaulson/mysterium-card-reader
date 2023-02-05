@@ -193,10 +193,12 @@ $('#game-form').submit(function (event) {
   }
 
   for (var deck in cards) {
-    output[deck] = cards[deck]
-      .sort(function(a, b){return 0.5 - Math.random()})
-      .slice(0, cardCount)
-      .sort(cardSort);
+    for (let i = cards[deck].length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [cards[deck][i], cards[deck][j]] = [cards[deck][j], cards[deck][i]];
+    }
+
+    output[deck] = cards[deck].slice(0, cardCount).sort(cardSort);
   }
 
   switch (game.difficulty) {
